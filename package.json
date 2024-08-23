@@ -32,6 +32,9 @@
     "type": "git",
     "url": "https://github.com/epicweb-dev/test-server"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "prettier": {
     "semi": false,
     "singleQuote": true,
