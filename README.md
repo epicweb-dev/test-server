@@ -46,7 +46,7 @@ import { createWebSocketMiddleware } from '@epic-web/test-server/ws'
 it('handles WebSocket communication', async () => {
   await using server = await createTestHttpServer()
   // Attach WebSockets as a middleware to an existing HTTP server.
-  await using wss = await createWebSocketMiddleware({ server })
+  await using wss = createWebSocketMiddleware({ server })
 
   // Handle WebSocket connections.
   wss.ws.on('connect', (socket) => console.log('new connection!'))
@@ -64,7 +64,7 @@ Creates an HTTP server instance.
 - `options` (optional)
   - `protocols`, (optional) `Array<'http' | 'https'>` (default: `['http']`), the list of protocols to use when spawning the test server. Providing multiple values will spawn multiple servers with the corresponding controls via `server.http` and `server.https`.
   - `defineRoutes`, (optional) `(router: Router) => void`, a function describing the server's routes.
-- Returns: [`TestHttpServer`](#testhttpserver)
+- Returns: [Promise<`TestHttpServer`>](#testhttpserver)
 
 ### `TestHttpServer`
 
