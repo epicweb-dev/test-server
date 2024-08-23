@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@epic-web/test-server",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Utility for creating HTTP and WebSocket servers for testing",
   "main": "./lib/index.js",
   "files": [
