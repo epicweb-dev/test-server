@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "main": "../lib/http.js",
+  "types": "../lib/http.d.ts"
+}

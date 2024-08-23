@@ -1,0 +1,5 @@
+{
+  "type": "module",
+  "main": "../lib/ws.js",
+  "typings": "../lib/ws.d.ts"
+}

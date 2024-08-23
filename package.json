@@ -1,0 +1,57 @@
+{
+  "type": "module",
+  "name": "@epic-web/est-server",
+  "version": "0.0.0",
+  "description": "Utility for creating HTTP and WebSocket servers for testing",
+  "main": "./lib/index.js",
+  "files": [
+    "./lib",
+    "./http",
+    "./ws"
+  ],
+  "scripts": {
+    "test": "vitest",
+    "build": "tsup",
+    "prepack": "pnpm test && pnpm build",
+    "release": "release publish"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "test",
+    "server",
+    "http",
+    "websocket",
+    "testing",
+    "local"
+  ],
+  "author": "Artem Zakharchenko <me@kettanaito.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/epicweb-dev/test-server"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "dependencies": {
+    "@hono/node-server": "^1.12.1",
+    "@hono/node-ws": "^1.0.4",
+    "@open-draft/deferred-promise": "^2.2.0",
+    "@types/ws": "^8.5.12",
+    "hono": "^4.5.8",
+    "ws": "^8.18.0"
+  },
+  "devDependencies": {
+    "@ossjs/release": "^0.8.1",
+    "@types/node": "^20.0.0",
+    "tsup": "^8.2.4",
+    "typescript": "^5.5.4",
+    "undici": "^6.19.8",
+    "vitest": "^2.0.5"
+  }
+}
