@@ -8,6 +8,6 @@ export default defineConfig({
   dts: true,
   tsconfig: fileURLToPath(new URL('./tsconfig.build.json', import.meta.url)),
   clean: true,
-  splitting: false,
+  splitting: true,
   treeshake: true,
 })
