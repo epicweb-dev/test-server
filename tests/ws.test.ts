@@ -1,6 +1,7 @@
 import { WebSocket } from 'undici'
 import { createTestHttpServer } from '../src/http.js'
 import { createWebSocketMiddleware } from '../src/ws.js'
+import { WebSocketServer } from 'ws'
 
 it('returns correct WebSocket URL', async () => {
   await using server = await createTestHttpServer()
@@ -102,4 +103,11 @@ it('disconnects all clients when closing the server', async () => {
   // All clients must be disconnected once the "close" Promise resolves.
   expect(firstClient.readyState).toBe(WebSocket.CLOSED)
   expect(secondClient.readyState).toBe(WebSocket.CLOSED)
+})
+
+it('exposes the raw WebSocket server reference under `wss.raw`', async () => {
+  await using server = await createTestHttpServer()
+  await using wss = createWebSocketMiddleware({ server })
+
+  expect(wss.raw).toBeInstanceOf(WebSocketServer)
 })
