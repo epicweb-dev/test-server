@@ -40,6 +40,13 @@ export interface TestWebSocketServerOptions {
   pathname?: string
 }
 
+/**
+ * Attach a disposable WebSocket middleware to the given HTTP test server.
+ *
+ * @example
+ * await using server = await createTestHttpServer()
+ * await using wss = createWebSocketMiddleware({ server })
+ */
 export function createWebSocketMiddleware(options: TestWebSocketServerOptions) {
   const emitter: EventEmitter = Reflect.get(options.server, kEmitter)
   const pathname = options.pathname ?? `/ws/${randomUUID()}`
