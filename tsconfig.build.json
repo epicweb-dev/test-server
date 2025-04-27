@@ -3,6 +3,7 @@
   "compilerOptions": {
     "outDir": "./lib",
     "declaration": true,
+    "emitDeclarationOnly": true,
     "sourceMap": true
   }
 }
