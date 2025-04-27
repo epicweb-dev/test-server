@@ -1,8 +1,8 @@
 import type { IncomingMessage } from 'node:http'
 import type { Socket } from 'node:net'
-import type EventEmitter from 'node:events'
+import type { EventEmitter } from 'node:events'
 import { randomUUID } from 'node:crypto'
-import WebSocket from 'ws'
+import { WebSocketServer } from 'ws'
 import { type ServerType } from '@hono/node-server'
 import { DeferredPromise } from '@open-draft/deferred-promise'
 import {
@@ -44,7 +44,7 @@ export function createWebSocketMiddleware(options: TestWebSocketServerOptions) {
   const emitter: EventEmitter = Reflect.get(options.server, kEmitter)
   const pathname = options.pathname ?? `/ws/${randomUUID()}`
 
-  const wss = new WebSocket.WebSocketServer({
+  const wss = new WebSocketServer({
     noServer: true,
     path: pathname,
   })

@@ -2,13 +2,11 @@
   "compilerOptions": {
     "strict": true,
     "skipLibCheck": true,
-    "moduleDetection": "force",
     "noUncheckedIndexedAccess": true,
-    "verbatimModuleSyntax": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
+    "verbatimModuleSyntax": true,
     "types": ["node"]
   },
   "exclude": ["node_modules"]
