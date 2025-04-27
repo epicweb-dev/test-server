@@ -75,7 +75,7 @@ export function createWebSocketMiddleware(options: TestWebSocketServerOptions) {
 
   // First, see if the test server already has server instances running.
   // E.g. when calling this middleware inside of a test.
-  const servers = Reflect.get(options.server, kServers) as Array<ServerType>
+  const servers: Array<ServerType> = Reflect.get(options.server, kServers)
   servers.forEach((server) => {
     addUpgradeListener(server)
   })
@@ -91,6 +91,7 @@ export function createWebSocketMiddleware(options: TestWebSocketServerOptions) {
       await this.close()
     },
 
+    raw: wss,
     on: wss.on.bind(wss),
     once: wss.once.bind(wss),
     off: wss.off.bind(wss),
