@@ -5,6 +5,7 @@
     "noUncheckedIndexedAccess": true,
     "module": "nodenext",
     "moduleResolution": "nodenext",
+    "moduleDetection": "force",
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
     "types": ["node"]

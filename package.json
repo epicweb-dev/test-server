@@ -13,8 +13,7 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "tsup && pnpm patch-types",
-    "patch-types": "./patch-ws-d-ts.sh",
+    "build": "tsup",
     "prepack": "pnpm test && pnpm build",
     "release": "release publish"
   },
@@ -48,9 +47,9 @@
     "@hono/node-server": "^1.12.1",
     "@hono/node-ws": "^1.0.4",
     "@open-draft/deferred-promise": "^2.2.0",
-    "@types/ws": "^8.5.12",
+    "@types/ws": "^8.18.1",
     "hono": "^4.5.8",
-    "ws": "^8.18.0"
+    "ws": "^8.18.1"
   },
   "devDependencies": {
     "@ossjs/release": "^0.8.1",
