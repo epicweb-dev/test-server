@@ -13,8 +13,8 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "tsup",
-    "postbuild": "./patch-ws-d-ts.sh",
+    "build": "tsup && pnpm patch-types",
+    "patch-types": "./patch-ws-d-ts.sh",
     "prepack": "pnpm test && pnpm build",
     "release": "release publish"
   },
