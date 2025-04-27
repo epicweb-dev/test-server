@@ -50,6 +50,16 @@ export const kServer = Symbol('kServer')
 export const kServers = Symbol('kServers')
 export const kEmitter = Symbol('kEmitter')
 
+/**
+ * Create a disposable HTTP server.
+ *
+ * @example
+ * await using server = await createTestHttpServer({
+ *   defineRoutes(router) {
+ *     router.get('/resource', () => new Response('Hello world!'))
+ *   }
+ * })
+ */
 export async function createTestHttpServer(
   options?: TestHttpServerOptions,
 ): Promise<TestHttpServer> {
