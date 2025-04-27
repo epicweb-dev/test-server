@@ -5,8 +5,10 @@
     "moduleDetection": "force",
     "noUncheckedIndexedAccess": true,
     "verbatimModuleSyntax": true,
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "types": ["node"]
   },
   "exclude": ["node_modules"]
