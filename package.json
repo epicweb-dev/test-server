@@ -4,6 +4,17 @@
   "version": "0.1.5",
   "description": "Utility for creating HTTP and WebSocket servers for testing",
   "main": "./lib/index.js",
+  "exports": {
+    "./http": {
+      "types": "./lib/http.d.ts",
+      "default": "./lib/http.js"
+    },
+    "./ws": {
+      "types": "./lib/ws.d.ts",
+      "default": "./lib/ws.js"
+    },
+    "./package.json": "./package.json"
+  },
   "files": [
     "./lib",
     "./http",
