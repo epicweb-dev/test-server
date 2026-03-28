@@ -5,7 +5,7 @@ Utility for creating HTTP and WebSocket servers for testing.
 ## Features
 
 - **Compact**. Spawn servers on-demand while keeping the test setup to the minimum.
-- **Automatically disposable**. This utility is build with the [`using`](https://www.totaltypescript.com/typescript-5-2-new-keyword-using) keyword in mind. Any servers you spawn are automatically closed once nothing is using them.
+- **Automatically disposable**. This utility is build with the [`using`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/using) keyword in mind. Any servers you spawn are automatically closed once nothing is using them.
 - **Standard-based**. Handle requests and responses using the web standards. This library uses [Hono](https://hono.dev/) to spawn servers.
 
 ## Install
