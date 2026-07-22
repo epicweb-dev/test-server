@@ -74,9 +74,6 @@ export async function createTestHttpServer(
   const emitter = new EventEmitter()
 
   const rootRouter = new Hono()
-  rootRouter.get('/', () => {
-    return new Response('Test server is listening')
-  })
 
   if (
     typeof options === 'object' &&
@@ -91,11 +88,26 @@ export async function createTestHttpServer(
    */
   rootRouter.use(cors())
 
+  /**
+   * @note Register the default root route after `defineRoutes` so
+   * routes defined by the user take precedence (Hono matches the
+   * first registered handler for the same path).
+   */
+  rootRouter.get('/', () => {
+    return new Response('Test server is listening')
+  })
+
   const app = new Hono(rootRouter)
   const serveOptions = {
     fetch: app.fetch,
     hostname: options?.hostname || '127.0.0.1',
     port: 0,
+    /**
+     * @note Prevent `@hono/node-server` from replacing the global
+     * `Request` and `Response` classes with its own lightweight versions.
+     * Tests must keep running with the standard globals.
+     */
+    overrideGlobalObjects: false,
   } satisfies ServeOptions
 
   const servers = new Map<TestHttpServerProtocol, ServerType>()

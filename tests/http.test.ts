@@ -5,6 +5,37 @@ const books = [
   'The Song of Ice and Fire'
 ]
 
+test('responds with the default message on the root route', async () => {
+  await using server = await createTestHttpServer()
+  const response = await fetch(server.http.url('/'))
+
+  expect(response.status).toBe(200)
+  await expect(response.text()).resolves.toBe('Test server is listening')
+})
+
+test('allows overriding the default root route', async () => {
+  await using server = await createTestHttpServer({
+    defineRoutes(router) {
+      router.get('/', () => new Response('Custom root'))
+    }
+  })
+  const response = await fetch(server.http.url('/'))
+
+  expect(response.status).toBe(200)
+  await expect(response.text()).resolves.toBe('Custom root')
+})
+
+test('does not override the global Request and Response classes', async () => {
+  const OriginalRequest = globalThis.Request
+  const OriginalResponse = globalThis.Response
+
+  await using server = await createTestHttpServer()
+  await fetch(server.http.url('/'))
+
+  expect(globalThis.Request).toBe(OriginalRequest)
+  expect(globalThis.Response).toBe(OriginalResponse)
+})
+
 test('creates an HTTP server', async () => {
   await using server = await createTestHttpServer({
     defineRoutes(router) {
